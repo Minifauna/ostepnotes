@@ -20,8 +20,8 @@ TODO: recount setup in steps used with unsuccessful attempts and their resolutio
         - `sudo pacman -Syu curl python3 libmpc mpfr gmp base-devel texinfo gperf patchutils bc zlib expat libslirp`
         - configuration options near the top of the README in this repo will tempt you, but you can save compilation time and get the `softmmu` support you require with:
             - `sudo pacman -Syyu python-pyelftools python-sphinx python-sphinx_rtd_theme ninja`
-            - ```./configure --enable-qemu-system --prefix=/opt/riscv
-make build-sim SIM=qemu```
+            - `./configure --enable-qemu-system --prefix=/opt/riscv`
+            - `make build-sim SIM=qemu`
         - Continue the README from "Test Suite" for testing and troubleshooting at compile time
 5. Clone the xv6-riscv repo:
     - `git clone https://github.com/mit-pdos/xv6-riscv/tree/riscv`
