@@ -1,5 +1,5 @@
 # Setup (Arch)
-TODO: recount setup in steps used with unsuccessful attempts and their resolutions
+TODO: Full dependencies list 
 - Links
     - Operating Systems: Three Easy Pieces book: https://pages.cs.wisc.edu/~remzi/OSTEP/#book-chapters
     - OSTEP Homework repo: https://github.com/remzi-arpacidusseau/ostep-homework
