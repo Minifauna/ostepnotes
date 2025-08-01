@@ -26,6 +26,7 @@ TODO: recount setup in steps used with unsuccessful attempts and their resolutio
 5. Clone the xv6-riscv repo:
     - `git clone https://github.com/mit-pdos/xv6-riscv/tree/riscv`
     - `cd xv6-riscv`
+    - VIM cheat sheet: https://www.vim.page/vim-commands-cheat-sheet
     - `vim Makefile`
     - `/CPU` to find the occurence of CPU
     - update `CPUS :=1`
