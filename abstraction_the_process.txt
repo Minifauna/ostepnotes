@@ -1,0 +1,40 @@
+The Abstraction: The Process
+process - a running program
+The Crux - How to provide the illusion of many CPUs from one (or few) physical CPUs?
+Virtualizing
+time sharing - basic virtualization technique, OS swaps between programs running on the CPU based on policies
+space sharing - divide resource in space among those who wish to use it, e.g. disk space assigned by blocks to files
+mechanisms - low-level methods and protocols that implement needed pieces of functionality, e.g. context switch that gives the OS the ability to stop running one program and start running another
+policies - algorithms for decision making in the OS, e.g. given a number of possible programs to run, which should the OS choose?
+a scheduling policy will make a decision as described in the above example, typically using historical run time information, workload knowledge, and performance metrics
+
+The Abstraction - a Process
+machine state - what a program can read or update when it is running, at any given time what parts of the machine are important to the execution of this program?
+memory is a component of machine state, instructions lie in memory; the data the process needs to read and write is also here
+address space - the memory that a process can address
+Special registers also form part of the machine state, for example: program counter(PC, also called instruction pointer or IP) tells which instruction of the program will execute next
+stack pointer - used along with associated frame pointer to manage the stack for function params, local vars, and return addresses
+
+Process API
+API - Some idea of what must be included in any interface of an operating system:
+1. Create - OS must be able to be invoked to create new process in order to run programs
+2. Destroy - most process will exit on their own once finished, when they don't or when they runaway it is useful to have a kill function
+3. Wait - sometimes useful to wait as opposed to kill
+4. Miscellaneous Control - sometimes other controls are possible aside from kill/wait. For example, most OSes can suspend and resume processes
+5. Status - typically there are interfaces to get status information about a process, such as how long it has run for or what state it is in
+
+Process Creation: a Little More Detail
+<img src='~/notes/from_program_to_process.png'>
+programs initially reside on disk, the OS must first load the code/static data into the address space of the process
+eager loading - loading all at once before running the program
+lazy loading - loading pieces of code or data only as needed during execution, this involved the machinery of paging and swapping which will be covered during the virtualization of memory in a later chapter
+once the code/static data is loaded into address space, the OS allocates memory for the program's run-time stack (or just stack)
+the OS may also allocate memory for the program's heap
+heap - used for explicitly requested dynamically-allocated data; programs request this by calling malloc() and free it explicitly by calling free(), the heap is necessary for data structures such as linked lists, has tables, trees, and more
+the heap begins small, as the program runs and requests more memory via malloc(), the OS may allocate more heap memory for the process if necessary
+file descriptors - in UNIX there are three open file descriptors: standard input, output, and error; these let programs easily read input from and print to the terminal
+Once the code/static data are loaded into memory and the stack is created and initialized (along with other I/O setup) the stage is set for program execution and there is one task remaining: to start the program running at the entry point (namely `main()`)
+The OS jumps to the main() routing (through a specialized mechanism discussed in the next chapter) and transfers control of the CPU to the newly-created process 
+
+Process States
+
