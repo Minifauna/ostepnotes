@@ -24,7 +24,7 @@ API - Some idea of what must be included in any interface of an operating system
 5. Status - typically there are interfaces to get status information about a process, such as how long it has run for or what state it is in
 
 Process Creation: a Little More Detail
-<img src='~/notes/from_program_to_process.png'>
+<img src='~/ostepnotes/from_program_to_process.png'>
 programs initially reside on disk, the OS must first load the code/static data into the address space of the process
 eager loading - loading all at once before running the program
 lazy loading - loading pieces of code or data only as needed during execution, this involved the machinery of paging and swapping which will be covered during the virtualization of memory in a later chapter
