@@ -32,3 +32,4 @@ TODO: Full dependencies list
     - update `CPUS :=1`
     - `make qemu`
 6. Best of luck!
+Found a student's simplification of the process, well worded and worth a gander: https://tnallen.people.clemson.edu/2019/03/04/intro-to-xv6.html
